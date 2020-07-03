@@ -30,11 +30,11 @@ resource "aws_elasticache_subnet_group" "private" {
 }
 
 resource "aws_elasticache_cluster" "redis" {
-  cluster_id           = var.name
-  engine               = "redis"
-  node_type            = "cache.t2.micro"
-  num_cache_nodes      = 1
-  engine_version       = "5.0.3"
-  subnet_group_name    = aws_elasticache_subnet_group.private.name
-  security_group_ids   = [aws_security_group.redis.id]
+  cluster_id         = var.name
+  engine             = "redis"
+  node_type          = var.cache_instance_size
+  num_cache_nodes    = 1
+  engine_version     = var.engine_version
+  subnet_group_name  = aws_elasticache_subnet_group.private.name
+  security_group_ids = [aws_security_group.redis.id]
 }

@@ -15,3 +15,15 @@ variable "security_groups" {
   type        = list(string)
   description = "The security groups to use for the instance"
 }
+
+variable "cache_instance_size" {
+  type        = string
+  description = "The size of the instance to launch"
+  default     = "cache.t2.micro"
+}
+
+variable "engine_version" {
+  type        = string
+  description = "The version of Redis"
+  default     = "5.0.3"
+}
