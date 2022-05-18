@@ -27,3 +27,15 @@ variable "engine_version" {
   description = "The version of Redis"
   default     = "5.0.3"
 }
+
+variable "parameter_group_family" {
+  type        = string
+  description = "The parameter group family to use for the instance"
+  default     = "redis5.0"
+}
+
+variable "maxmemory_policy" {
+  type        = string
+  description = "The eviction policty when cache memory is overfilled"
+  default     = "volatile-lru"
+}
